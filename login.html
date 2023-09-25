@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Connect Plus</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="connect/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="connect/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="connect/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="connect/assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="connect/assets/images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth">
+        <div class="row flex-grow">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left p-5">
+              <h2 style="color: black;">Log in</h2>
+              <h4>Hello! let's get started</h4>
+              <h6 class="font-weight-light">Sign in to continue.</h6>
+              <form id="login_form" class="pt-3" method="post">
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-lg" id="login_username"
+                    placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" id="login_password"
+                    placeholder="Password">
+                </div>
+                <div class="mt-3">
+                  <button id=login_button type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" name="login_button">Log in</button>
+                </div>
+                <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.html"
+                    class="text-primary">Create</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- jquery -->
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <!-- login -->
+  <script>
+    //按鈕監聽login_btn
+    $("#login_button").click(function () {
+      //傳遞至 login_api.php 執行登入行為
+      $.ajax({
+        type: "POST",
+        url: "api/login.php",
+        async: false,
+        data: { username: $("#login_username").val(), password: $("#login_password").val() },
+        // 加上dataType就不會出現回報訊息
+        dataType: "json",
+        success: showdata_login,
+        error: function () {
+          alert("登入相關錯誤-login_api.php");
+        }
+      });
+    });
+
+    //監聽登出按鈕 #s20_logout_btn
+    $("#s20_logout_btn").click(function () {
+      logout();
+    });
+
+    function showdata_login(data) {
+      // alert(data.message);
+      // console.log(data);
+      if (data.state) {
+        window.location.replace("connect/admin/index.html");
+        //登入成功
+        // alert(data.message);
+        //將trend_uid存入cookie
+        setCookie('trend_uid', data.uid, 7);
+
+      } else {
+        //登入失敗
+        alert(data.message);
+      }
+    }
+    //登出帳號
+    //刪除trend_uid並重整畫面
+    function logout() {
+      setCookie('trend_uid', '', 7);
+      location.href = "index.html";
+    }
+
+    // w3c 
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      let expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+  </script>
+  <!-- plugins:js -->
+  <script src="connect/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="connect/assets/js/off-canvas.js"></script>
+  <script src="connect/assets/js/hoverable-collapse.js"></script>
+  <script src="connect/assets/js/misc.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

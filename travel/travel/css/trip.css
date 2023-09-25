@@ -1,0 +1,132 @@
+
+.mc-hd__account-cur .tier-points__level2 {
+  background: url(../images/p2.png) no-repeat 0 0;
+  background-size: cover;
+}
+.mc-hd__account-cur .mc-hd__avatar {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  /* border-radius: 100%; */
+  /* overflow: hidden; */
+  /* background-color: #3264ff; */
+}
+.mc-hd__account-cur .tier-points {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 23px;
+  top: 17px;
+  z-index: 10;
+}
+.mc-hd__account-cur .fa-user {
+  /* color: #fff; */
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 20px;
+  position: relative;
+  margin-top: 3px;
+  margin-left: -2px;
+  font-weight: 700;
+}
+
+.fi {
+  font-family: fi!important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fi {
+  font-family: fi!important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+dfn, em, i {
+  font-style: normal;
+}
+* {
+  font-family: Trip Geom,BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+}
+user agent stylesheet
+i {
+  font-style: italic;
+}
+
+.mc-hd a, .mc-hd a:hover {
+  text-decoration: none;
+}
+
+.mc-hd a {
+  color: #0f294d;
+  cursor: pointer;
+}
+
+.mc-hd__account-cur {
+  color: #3264ff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #dadfe6;
+  padding: 4px 8px;
+  height: 34px;
+  box-sizing: border-box;
+  position: relative;
+}
+a {
+  text-decoration: none;
+}
+a, input[type=text] {
+  color: #333;
+}
+
+.mc-hd__account {
+  float: left;
+  padding: 16px 0;
+  height: 34px;
+  margin: 0 4px;
+  font-weight: 700;
+}
+
+.mc-hd {
+  position: relative;
+  line-height: 1.5;
+  padding: 0 32px;
+}
+.mc-hd_coins-con {
+  display: block;
+  height: 34px;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  margin: 16px 0;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+.mc-hd_coins-icon {
+  background: url(../images/T.jpeg) no-repeat 0 0;
+  background-size: 21px 21px;
+  width: 21px;
+  height: 21px;
+  float: left;
+  margin: 1.5px;
+}
+.mc-hd_coins-con .mc-hd__coins-hint {
+  display: none;
+  color: #0f294d;
+  position: absolute;
+  font-size: 12px;
+  right: 0;
+  top: 48px;
+  white-space: nowrap;
+  padding: 8px 14px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 rgba(15,41,77,.08);
+  z-index: 100001999;
+}
